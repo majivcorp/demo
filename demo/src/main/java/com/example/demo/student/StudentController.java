@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-//All of the resources for our API Layer
+//All of the resources for our API Layer, data is passed and processed, from the and to the StudentService layer
 @RestController
 @RequestMapping(path ="api/v1/student")
 
