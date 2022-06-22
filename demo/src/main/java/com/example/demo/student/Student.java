@@ -2,11 +2,17 @@ package com.example.demo.student;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
+/**
+ * It's a simple POJO with a few fields, a constructor, getters and setters, and a toString() method
+ */
 @Entity
+// It's a JPA annotation. It's used to specify the table name.
 @Table
 public class Student {
     @Id
+    // It's a sequence generator.
     @SequenceGenerator(
             name = "student_sequence",
             sequenceName = "student_sequence",
@@ -20,33 +26,38 @@ public class Student {
     private String name;
     private String email;
     private LocalDate dob;
+
+    // It's a transient field. It's not persisted in the database.
+    @Transient
     private Integer age;
 
+    // It's a default constructor.
     public Student() {
     }
 
+    // It's a constructor.
     public Student(Long id,
                    String name,
                    String email,
-                   LocalDate dob,
-                   Integer age) {
+                   LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
+
     }
 
+    // It's a constructor.
     public Student(String name,
                    String email,
-                   LocalDate dob,
-                   Integer age) {
+                   LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
+
     }
 
+    // It's a getter and setter for the id, name, email, dob..etc fields.
     public Long getId() {
         return id;
     }
@@ -80,13 +91,18 @@ public class Student {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
         this.age = age;
     }
 
+    /**
+     * The toString() method returns a string representation of the object
+     *
+     * @return The toString() method is being overridden to return the values of the Student object.
+     */
     @Override
     public String toString() {
         return "Student{" +

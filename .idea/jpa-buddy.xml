@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig" ddlActionDbType="postgres">
     <option name="defaultUnitInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="f9bd3e1b-7e6c-4675-bfcd-8e891dec4eda" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/example/demo/student" />
   </component>
 </project>
